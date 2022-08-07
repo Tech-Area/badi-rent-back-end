@@ -37,6 +37,14 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
         }
     }
 
+//    private List<GrantedAuthority> getGrantedAuthority(Set<Authority> authorities){
+//        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+//        for(Authority authority: authorities){
+//            grantedAuthorities.add(new SimpleGrantedAuthority(authority.getName()));
+//        }
+//        return grantedAuthorities;
+//    }
+
     @Override
     public boolean supports(Class<?> authentication) {
         return authentication.equals(UsernamePasswordAuthenticationToken.class);

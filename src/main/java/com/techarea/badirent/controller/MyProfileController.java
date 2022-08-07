@@ -9,13 +9,12 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rent")
+@RequestMapping("/profile")
+public class MyProfileController {
+    List<String> testList = Arrays.asList("my profile", "page");
 
-public class RentController {
-    List<String> testList = Arrays.asList("rent", "page");
-
-    @PreAuthorize("hasAnyRole('admin')")
-    @GetMapping
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping("/test")
     public List<String> getTestList() {
         return
                 testList;

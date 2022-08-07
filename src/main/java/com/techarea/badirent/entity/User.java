@@ -22,10 +22,10 @@ public class User {
     @Column
     private String password;
 
-    @Column
-    private String role;
+    @OneToMany
+    private String authority;
 
     @Column
-    private Integer enabled;
+    private boolean enabled;
 
 }
