@@ -22,8 +22,8 @@ public class User {
     @Column
     private String password;
 
-    @OneToMany
-    private String authority;
+    @Column
+    private String role;
 
     @Column
     private boolean enabled;
