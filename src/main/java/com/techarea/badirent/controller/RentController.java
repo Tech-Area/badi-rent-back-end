@@ -14,8 +14,9 @@ import java.util.List;
 public class RentController {
     List<String> testList = Arrays.asList("rent", "page");
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
+    @PreAuthorize("permitAll()")
     public List<String> getTestList() {
         return
                 testList;
