@@ -13,7 +13,7 @@ import java.util.List;
 public class MyProfileController {
     List<String> testList = Arrays.asList("my profile", "page");
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('GUEST')")
     @GetMapping("/test")
     public List<String> getTestList() {
         return
