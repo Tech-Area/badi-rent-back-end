@@ -6,12 +6,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/cars")
-@PreAuthorize("permitAll()")
+@ControllerAdvice
+@CrossOrigin(origins = "*")
 public class CarController {
     private final CarService carService;
 
@@ -25,9 +28,9 @@ public class CarController {
         return new ResponseEntity<>(carService.getAll(), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping()
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<CarDto> save(@RequestBody CarDto carDto){
-        return new ResponseEntity<>(carService.save(carDto),HttpStatus.CREATED);
+    public ResponseEntity<CarDto> save(@RequestPart("carDto") String carDto, @RequestPart("file") MultipartFile imageFile) throws IOException {
+        return new ResponseEntity<>(carService.save(carDto, imageFile), HttpStatus.CREATED);
     }
 }

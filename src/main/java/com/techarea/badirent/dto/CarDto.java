@@ -1,7 +1,6 @@
 package com.techarea.badirent.dto;
 
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
 
 @Builder
 @Getter

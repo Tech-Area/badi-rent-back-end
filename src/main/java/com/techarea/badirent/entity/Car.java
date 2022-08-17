@@ -1,9 +1,6 @@
 package com.techarea.badirent.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -12,6 +9,8 @@ import javax.persistence.*;
 @Table(name = "cars")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Data
 @Builder
 public class Car {

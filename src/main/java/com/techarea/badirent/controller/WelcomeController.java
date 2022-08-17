@@ -10,11 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/welcome")
-@PreAuthorize("permitAll()")
 public class WelcomeController {
     List<String> testList = Arrays.asList("ciprian", "ionut");
 
     @GetMapping
+    @PreAuthorize("permitAll()")
     public List<String> getTestList() {
         return
                 testList;
