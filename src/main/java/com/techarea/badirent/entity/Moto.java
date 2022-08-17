@@ -2,19 +2,19 @@ package com.techarea.badirent.entity;
 
 import lombok.*;
 import org.hibernate.annotations.Type;
-import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "motos")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Data
 @Builder
-public class Car {
+public class Moto {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +33,10 @@ public class Car {
     private Double insurancePrice;
 
     private Boolean available;
-    private Integer seats;
 
-    @Column(name = "car_image")
+    @Column(name = "moto_image")
     @Lob
-    @Type(type = "org.hibernate.type.BinaryType")
-    private byte[] carImage;
+    @Type(type="org.hibernate.type.BinaryType")
+    private byte[] motoImage;
 
 }
