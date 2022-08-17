@@ -1,7 +1,9 @@
 package com.techarea.badirent.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.techarea.badirent.dto.CarDto;
 import com.techarea.badirent.dto.MotoDto;
+import com.techarea.badirent.mapper.CarMapper;
 import com.techarea.badirent.mapper.MotoMapper;
 import com.techarea.badirent.repository.MotoRepository;
 import org.springframework.stereotype.Service;
@@ -42,5 +44,9 @@ public class MotoService {
         }
 
         return jsonFromString;
+    }
+
+    public MotoDto getById(Long id) {
+        return MotoMapper.map(motoRepository.getReferenceById(id));
     }
 }

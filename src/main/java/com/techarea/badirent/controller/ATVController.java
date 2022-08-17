@@ -25,7 +25,14 @@ public class ATVController {
     @GetMapping
     @PreAuthorize("permitAll()")
     public ResponseEntity<List<ATVDto>> getAll() {
+
         return new ResponseEntity<>(atvService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    @PreAuthorize("permitAll()")
+    public ResponseEntity<ATVDto> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(atvService.getById(id), HttpStatus.OK);
     }
 
     @PostMapping
