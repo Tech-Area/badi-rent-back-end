@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static java.util.stream.Collectors.toList;
 
@@ -41,5 +42,9 @@ public class ATVService {
         }
 
         return jsonFromString;
+    }
+
+    public ATVDto getById(Long id) {
+        return AtvMapper.map(atvRepository.getReferenceById(id));
     }
 }

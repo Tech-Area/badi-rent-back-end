@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cars")
-@ControllerAdvice
 @CrossOrigin(origins = "*")
 public class CarController {
     private final CarService carService;
@@ -26,6 +25,12 @@ public class CarController {
     @PreAuthorize("permitAll()")
     public ResponseEntity<List<CarDto>> getAll() {
         return new ResponseEntity<>(carService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    @PreAuthorize("permitAll()")
+    public ResponseEntity<CarDto> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(carService.getById(id), HttpStatus.OK);
     }
 
     @PostMapping()

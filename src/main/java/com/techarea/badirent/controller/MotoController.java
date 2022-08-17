@@ -1,5 +1,6 @@
 package com.techarea.badirent.controller;
 
+import com.techarea.badirent.dto.CarDto;
 import com.techarea.badirent.dto.MotoDto;
 import com.techarea.badirent.service.MotoService;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,11 @@ public class MotoController {
         return new ResponseEntity<>(motoService.getAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    @PreAuthorize("permitAll()")
+    public ResponseEntity<MotoDto> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(motoService.getById(id), HttpStatus.OK);
+    }
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<MotoDto> save(@RequestPart("motoDto") String motoDto,
