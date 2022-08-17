@@ -28,9 +28,8 @@ public class CarController {
         return new ResponseEntity<>(carService.getAll(), HttpStatus.OK);
     }
 
-    @PostMapping(produces = {"application/json"})
-//    @PreAuthorize("hasRole('ADMIN')")
-//    @PreAuthorize("permitAll()")
+    @PostMapping()
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CarDto> save(@RequestPart("carDto") String carDto, @RequestPart("file") MultipartFile imageFile) throws IOException {
         return new ResponseEntity<>(carService.save(carDto, imageFile), HttpStatus.CREATED);
     }
